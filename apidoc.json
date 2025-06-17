@@ -1,0 +1,337 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de Super-Heróis",
+    "description": "API com autenticação JWT, CRUD de heróis da Marvel, DC e gerenciamento de usuários."
+  },
+  "host": "localhost:3002",
+  "basePath": "/",
+  "schemes": ["http"],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Insira o token no formato: *Bearer SEU_TOKEN_AQUI*"
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": ["Autenticação"],
+        "summary": "Realiza login e retorna o token JWT",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "credenciais",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login bem-sucedido",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "msg": { "type": "string" },
+                "token": { "type": "string" }
+              }
+            }
+          },
+          "401": {
+            "description": "Usuário ou senha inválidos"
+          }
+        }
+      }
+    },
+    "/marvel": {
+      "get": {
+        "tags": ["Marvel"],
+        "summary": "Lista heróis da Marvel",
+        "responses": {
+          "200": { "description": "Lista de heróis retornada" }
+        }
+      },
+      "post": {
+        "tags": ["Marvel"],
+        "summary": "Cria herói da Marvel",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "heroi",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Heroi"
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Herói criado com sucesso" }
+        }
+      }
+    },
+    "/marvel/{id}": {
+      "get": {
+        "tags": ["Marvel"],
+        "summary": "Busca herói da Marvel por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói encontrado" },
+          "404": { "description": "Herói não encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["Marvel"],
+        "summary": "Atualiza herói da Marvel por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "heroi",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Heroi"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói atualizado com sucesso" }
+        }
+      },
+      "delete": {
+        "tags": ["Marvel"],
+        "summary": "Deleta herói da Marvel por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói deletado com sucesso" }
+        }
+      }
+    },
+    "/dc": {
+      "get": {
+        "tags": ["DC"],
+        "summary": "Lista heróis da DC",
+        "responses": {
+          "200": { "description": "Lista de heróis retornada" }
+        }
+      },
+      "post": {
+        "tags": ["DC"],
+        "summary": "Cria herói da DC",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "heroi",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Heroi"
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Herói criado com sucesso" }
+        }
+      }
+    },
+    "/dc/{id}": {
+      "get": {
+        "tags": ["DC"],
+        "summary": "Busca herói da DC por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói encontrado" },
+          "404": { "description": "Herói não encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["DC"],
+        "summary": "Atualiza herói da DC por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "heroi",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Heroi"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói atualizado com sucesso" }
+        }
+      },
+      "delete": {
+        "tags": ["DC"],
+        "summary": "Deleta herói da DC por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Herói deletado com sucesso" }
+        }
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "tags": ["Usuarios"],
+        "summary": "Lista todos os usuários",
+        "responses": {
+          "200": { "description": "Lista de usuários retornada" }
+        }
+      },
+      "post": {
+        "tags": ["Usuarios"],
+        "summary": "Cria um novo usuário",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "usuario",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Usuário criado com sucesso" }
+        }
+      }
+    },
+    "/usuarios/{id}": {
+      "get": {
+        "tags": ["Usuarios"],
+        "summary": "Busca usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Usuário encontrado" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["Usuarios"],
+        "summary": "Atualiza usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "usuario",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Usuário atualizado com sucesso" }
+        }
+      },
+      "delete": {
+        "tags": ["Usuarios"],
+        "summary": "Deleta usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Usuário deletado com sucesso" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Heroi": {
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string" },
+        "poderes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "universo": { "type": "string" },
+        "time": { "type": "string" },
+        "ativo": { "type": "boolean" }
+      },
+      "required": ["nome", "universo"]
+    },
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string" },
+        "login": { "type": "string" },
+        "senha": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["login", "senha"]
+    },
+    "Auth": {
+      "type": "object",
+      "properties": {
+        "login": { "type": "string" },
+        "senha": { "type": "string" }
+      },
+      "required": ["login", "senha"]
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+    "usuarios": {
+        "USER-1": {
+            "id": "USER-1",
+            "nome": "Admin",
+            "login": "admin",
+            "senha": "12345",
+            "email": "admin@hero.com"
+        },
+        "USER-gq06svwe": {
+            "id": "USER-gq06svwe",
+            "nome": "Pietro",
+            "login": "pietro.cordeiro",
+            "senha": "123456",
+            "email": "gregorio.pietro@gmail.com"
+        },
+        "USER-kvvbbq6n": {
+            "id": "USER-kvvbbq6n",
+            "nome": "pietroteste",
+            "login": "pietroseguranca",
+            "senha": "123456",
+            "email": "pietroseguranca"
+        }
+    },
+    "marvel": {
+        "MARVEL-1": {
+            "id": "MARVEL-1",
+            "nome": "Homem de Ferro",
+            "poderes": [
+                "Armadura",
+                "Inteligência"
+            ],
+            "universo": "Marvel",
+            "time": "Vingadores",
+            "ativo": true
+        },
+        "MARVEL-2": {
+            "id": "MARVEL-2",
+            "nome": "Wolverine",
+            "poderes": [
+                "Regeneração",
+                "Garras"
+            ],
+            "universo": "Marvel",
+            "time": "X-Men",
+            "ativo": true
+        },
+        "MARVEL-epz4ssty": {
+            "id": "MARVEL-epz4ssty",
+            "nome": "string",
+            "poderes": [
+                "string"
+            ],
+            "universo": "string",
+            "time": "string",
+            "ativo": true
+        },
+        "MARVEL-6i9iw8eg": {
+            "id": "MARVEL-6i9iw8eg",
+            "nome": "Hulk",
+            "poderes": [
+                "Esmagar"
+            ],
+            "universo": "Marvel",
+            "time": "Vingadores",
+            "ativo": true
+        },
+        "MARVEL-807xxmbd": {
+            "id": "MARVEL-807xxmbd",
+            "nome": "teste seguranca",
+            "poderes": [
+                "string"
+            ],
+            "universo": "string",
+            "time": "string",
+            "ativo": true
+        },
+        "MARVEL-edhyukeq": {
+            "id": "MARVEL-edhyukeq",
+            "nome": "Teste de segurança 2",
+            "poderes": [
+                "string"
+            ],
+            "universo": "string",
+            "time": "string",
+            "ativo": true
+        }
+    },
+    "dc": {
+        "DC-1": {
+            "id": "DC-1",
+            "nome": "Batman",
+            "poderes": [
+                "Estratégia",
+                "Tecnologia"
+            ],
+            "universo": "DC",
+            "time": "Liga da Justiça",
+            "ativo": true
+        },
+        "DC-2": {
+            "id": "DC-2",
+            "nome": "Flash",
+            "poderes": [
+                "Velocidade"
+            ],
+            "universo": "DC",
+            "time": "Liga da Justiça",
+            "ativo": true
+        }
+    }
+}
